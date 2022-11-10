@@ -7,12 +7,7 @@ RUN apt-get -qq update
 RUN apt-get -qq install -y --no-install-recommends curl git gnupg2 unzip wget pv jq
 
 # install required packages
-RUN apt-get update && apt-get -y install python build-essential \
-    # install extraction tools
-    p7zip-full p7zip-rar rar unrar zip unzip \
-    # clean up the container "layer", after we are done
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
+RUN apt-get update && apt-get -y install python build-essential
 ENV LANG C.UTF-8
 ENV PORT=10000
 
@@ -24,10 +19,6 @@ ENV TZ Asia/Kolkata
 
 # rclone
 RUN curl https://rclone.org/install.sh | bash
-
-
-#ngrok
-RUN aria2c https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip && unzip ngrok-stable-linux-amd64.zip && mv ngrok /usr/bin/ && chmod +x /usr/bin/ngrok
 
 # Copies config(if it exists)
 COPY . .
