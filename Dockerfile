@@ -10,7 +10,7 @@ RUN apt-get -qq install -y --no-install-recommends curl git gnupg2 unzip wget pv
 RUN apt-get update && apt-get -y install python build-essential /
 # miscellaneous
     neofetch python3-dev git bash build-essential nodejs npm ruby \
-    python-minimal locales python-lxml nginx gettext-base xz-utils \
+    python-minimal locales python-lxml nginx gettext-base xz-utils
 
 
 ENV LANG C.UTF-8
