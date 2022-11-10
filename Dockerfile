@@ -7,10 +7,7 @@ RUN apt-get -qq update
 RUN apt-get -qq install -y --no-install-recommends curl git gnupg2 unzip wget pv jq
 
 # install required packages
-RUN apt-get update && apt-get install -y software-properties-common && \
-    rm -rf /var/lib/apt/lists/* && \
-    apt-add-repository non-free && \
-    apt-get -qq update && apt-get -qq install -y --no-install-recommends \
+RUN apt-get update && apt-get -y install python build-essential \
     # install extraction tools
     p7zip-full p7zip-rar rar unrar zip unzip \
     # clean up the container "layer", after we are done
