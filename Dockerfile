@@ -8,9 +8,8 @@ RUN apt-get -qq install -y --no-install-recommends curl git gnupg2 unzip wget pv
 
 # install required packages
 RUN apt-get update && apt-get -y install python build-essential /
-# miscellaneous
-    neofetch python3-dev git bash build-essential nodejs npm ruby \
-    python-minimal locales python-lxml nginx gettext-base xz-utils
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - 
+RUN apt-get install -y nodejs
 
 
 ENV LANG C.UTF-8
